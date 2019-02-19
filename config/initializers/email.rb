@@ -5,4 +5,6 @@ ActionMailer::Base.smtp_settings = {
   :enable_starttls_auto => (ENV["SMTP_STARTTLS_AUTO"] == "true"),
   :user_name => ENV.fetch("MAILGUN_SMTP_LOGIN", ""),
   :password => ENV.fetch("MAILGUN_SMTP_PASSWORD", ""),
+  :authentication => :plain,
 }
+ActionMailer::Base.delivery_method = :smtp
